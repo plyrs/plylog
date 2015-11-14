@@ -5,7 +5,7 @@
 # Site
 title: Playlog
 subtitle:
-description:
+description: My Playlog
 author: Hirofumi
 language:
 timezone:
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: apollo
+theme: amp
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -71,3 +71,8 @@ deploy:
   type: git
   repo: https://github.com/playrjp/playrjp.github.io.git
   branch: master
+
+node_sass:
+  outputStyle: compact
+  precision: 5
+  sourceComments: false

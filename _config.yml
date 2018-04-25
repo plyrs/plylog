@@ -84,3 +84,6 @@ feed:
   path: atom.xml
   limit: 20
   hub:
+
+sitemap:
+  template: ./sitemap_template.xml

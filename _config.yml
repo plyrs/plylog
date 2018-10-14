@@ -12,7 +12,7 @@ timezone: Asia/Tokyo
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://log.playr.jp/
+url: https://log.plyrs.net/
 root: /
 permalink: :year/:month/:day/:title.html
 permalink_defaults:
@@ -66,6 +66,14 @@ archive_generator:
   yearly: true
   monthly: true
 
+# Category
+category_generator:
+  per_page: 10
+
+# Tag
+tag_generator:
+  per_page: 10
+
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
@@ -75,7 +83,7 @@ theme: amp
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:playrjp/playrjp.github.io.git
+  repo: git@github.com:plyrs/plyrs.github.io.git
   branch: master
 
 # RSS Feed

@@ -1,3 +1,5 @@
+---
+layout: post
 title: CloudFlare導入してみる
 date: 2013-04-07 17:50:55
 tags:

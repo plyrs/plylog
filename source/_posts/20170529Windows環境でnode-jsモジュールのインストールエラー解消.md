@@ -1,3 +1,5 @@
+---
+layout: post
 title: Windows環境でnode.jsモジュールのインストールエラー解消
 date: 2017-05-29 00:25:06
 tags:

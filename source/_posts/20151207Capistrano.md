@@ -1,3 +1,5 @@
+---
+layout: post
 title: Capistrano
 date: 2015-12-07 18:39:09
 tags:

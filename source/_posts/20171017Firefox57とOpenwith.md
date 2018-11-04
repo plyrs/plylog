@@ -1,3 +1,5 @@
+---
+layout: post
 title: Firefox57とOpenwith
 date: 2017-10-17 01:19:41
 tags:

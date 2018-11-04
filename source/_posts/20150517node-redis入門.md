@@ -1,3 +1,5 @@
+---
+layout: post
 title: node-redis入門
 date: 2015-05-17 20:07:18
 tags:

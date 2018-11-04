@@ -1,3 +1,5 @@
+---
+layout: post
 title: Marker-Clusterer
 date: 2015-11-29 21:30:15
 tags:

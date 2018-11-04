@@ -1,3 +1,5 @@
+---
+layout: post
 title: npm-check-updates
 date: 2015-06-11 20:36:08
 tags:

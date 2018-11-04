@@ -1,3 +1,5 @@
+---
+layout: post
 title: sitemap.xml
 date: 2015-10-07 20:40:14
 tags:

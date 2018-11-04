@@ -1,3 +1,5 @@
+---
+layout: post
 title: SoyCMSをConohaへ
 date: 2015-09-30 20:23:07
 tags:

@@ -1,3 +1,5 @@
+---
+layout: post
 title: gulp-imagemin
 date: 2015-05-25 20:28:08
 tags:

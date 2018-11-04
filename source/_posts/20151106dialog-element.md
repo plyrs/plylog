@@ -1,3 +1,5 @@
+---
+layout: post
 title: dialog-element
 date: 2015-11-06 17:32:20
 tags:

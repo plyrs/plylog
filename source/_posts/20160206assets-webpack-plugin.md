@@ -1,3 +1,5 @@
+---
+layout: post
 title: assets-webpack-plugin
 date: 2016-02-06 19:22:23
 tags:

@@ -1,3 +1,5 @@
+---
+layout: post
 title: Splash-Screens
 date: 2015-11-26 16:19:33
 tags:

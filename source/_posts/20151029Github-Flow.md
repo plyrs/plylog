@@ -1,3 +1,5 @@
+---
+layout: post
 title: Github-Flow
 date: 2015-10-29 19:06:19
 tags:

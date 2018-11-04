@@ -1,3 +1,5 @@
+---
+layout: post
 title: Windows10へVagrantを導入
 date: 2015-08-10 20:03:31
 tags:

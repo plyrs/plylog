@@ -1,3 +1,5 @@
+---
+layout: post
 title: GrantからPassportへ
 date: 2016-01-10 19:04:59
 tags:

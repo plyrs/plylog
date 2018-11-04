@@ -1,3 +1,5 @@
+---
+layout: post
 title: Microdata
 date: 2015-10-14 19:54:30
 tags:

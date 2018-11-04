@@ -1,3 +1,5 @@
+---
+layout: post
 title: gulp-progeny
 date: 2015-10-31 21:17:26
 tags:

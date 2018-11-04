@@ -1,3 +1,5 @@
+---
+layout: post
 title: Critical-Path-CSS
 date: 2015-10-31 16:12:22
 tags:

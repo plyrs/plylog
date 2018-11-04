@@ -1,3 +1,5 @@
+---
+layout: post
 title: Metalsmith
 date: 2015-11-18 18:33:49
 tags:

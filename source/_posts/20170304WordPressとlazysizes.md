@@ -1,3 +1,5 @@
+---
+layout: post
 title: WordPressとlazysizes
 date: 2017-03-04 19:51:54
 tags:

@@ -1,3 +1,5 @@
+---
+layout: post
 title: GoogleAppsScriptのローカルで開発
 date: 2017-10-02 01:07:47
 tags:

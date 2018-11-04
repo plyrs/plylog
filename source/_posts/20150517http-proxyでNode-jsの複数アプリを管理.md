@@ -1,3 +1,5 @@
+---
+layout: post
 title: http-proxyでNode.jsの複数アプリを管理
 date: 2015-05-17 20:00:15
 tags:

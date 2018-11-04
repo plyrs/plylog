@@ -1,3 +1,5 @@
+---
+layout: post
 title: VanillaなDropdown
 date: 2015-10-30 16:08:49
 tags:

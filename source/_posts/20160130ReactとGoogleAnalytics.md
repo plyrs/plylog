@@ -1,3 +1,5 @@
+---
+layout: post
 title: ReactとGoogleAnalytics
 date: 2016-01-30 19:12:55
 tags:

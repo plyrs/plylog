@@ -1,3 +1,5 @@
+---
+layout: post
 title: Redis環境を構築(Windows7)
 date: 2015-05-16 20:58:17
 tags:

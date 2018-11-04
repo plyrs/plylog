@@ -1,3 +1,5 @@
+---
+layout: post
 title: Subversion
 date: 2016-03-25 19:44:47
 tags:

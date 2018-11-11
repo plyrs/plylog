@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install Hexo CLI
-          command: npm install -g hexo-cli
+          command: npm install -D hexo-cli
       - restore_cache:
           keys:
             - v1-npm-deps-{{ checksum "package.json" }}

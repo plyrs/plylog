@@ -85,6 +85,7 @@ deploy:
   type: git
   repo: git@github.com:plyrs/playlog.git
   branch: gh-pages
+  message: [skip ci]
 
 # RSS Feed
 feed:

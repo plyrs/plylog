@@ -33,7 +33,7 @@ jobs:
       - run: git config --global user.email "circleci@example.com"
       - add_ssh_keys:
           fingerprints:
-            - "c4:7f:7c:ee:71:fd:3f:7f:83:ac:4a:6f:5f:13:ec:9c"
+            - "9b:6b:b8:9a:c5:c0:3e:54:a5:96:80:83:ef:88:42:5f"
       - run: git submodule update --init
       - run: npm install
       - run: ./node_modules/hexo/bin/hexo generate && ./node_modules/hexo/bin/hexo deploy

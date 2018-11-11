@@ -29,8 +29,8 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: git config --global user.name "Circle CI"
-      - run: git config --global user.email "circleci@example.com"
+      - run: git config --global user.name "plyrsbot"
+      - run: git config --global user.email "bot@plyrs.app"
       - add_ssh_keys:
           fingerprints:
             - "9b:6b:b8:9a:c5:c0:3e:54:a5:96:80:83:ef:88:42:5f"
@@ -38,10 +38,13 @@ jobs:
       - run: npm install
       - run: ./node_modules/hexo/bin/hexo generate && ./node_modules/hexo/bin/hexo deploy
 workflows:
-  version: 2
+  version: 2.1
   build-and-deploy:
     jobs:
       - build
+          filters:
+            branches:
+              only: master
       - deploy:
           requires:
             - build

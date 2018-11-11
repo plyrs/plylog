@@ -22,7 +22,7 @@ jobs:
             - node_modules
       - run:
           name: Generates static files
-          command: hexo generate
+          command: ./node_modules/hexo/bin/hexo generate
   deploy:
     docker:
       - image: circleci/node:10

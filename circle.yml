@@ -1,0 +1,19 @@
+machine:
+  timezone: Asia/Tokyo
+
+dependencies:
+  override:
+    - npm install
+    - npm install -g hexo-cli
+
+test:
+  override:
+    - echo "testing"
+
+deployment:
+  prod:
+    branch: gh-pages
+    commands:
+      - hexo clean
+      - hexo generate
+      - hexo deploy

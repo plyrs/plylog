@@ -36,12 +36,17 @@ jobs:
             - "9b:6b:b8:9a:c5:c0:3e:54:a5:96:80:83:ef:88:42:5f"
       - run: git submodule update --init
       - run: npm install
-      - run: ./node_modules/hexo/bin/hexo generate && ./node_modules/hexo/bin/hexo deploy
+      - run: ./node_modules/hexo/bin/hexo clean
+      - run: ./node_modules/hexo/bin/hexo generate
+      - run: ./node_modules/hexo/bin/hexo deploy
 workflows:
   version: 2.1
   build-and-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
       - deploy:
           requires:
             - build

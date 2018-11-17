@@ -85,7 +85,7 @@ deploy:
   type: git
   repo: git@github.com:plyrs/plylog.git
   branch: gh-pages
-  message: "[skip ci] Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
 
 # RSS Feed
 feed:

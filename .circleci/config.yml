@@ -1,4 +1,4 @@
-version: 2.0
+version: 2.1
 jobs:
   build:
     docker:
@@ -38,7 +38,7 @@ jobs:
       - run: npm install
       - run: ./node_modules/hexo/bin/hexo generate && ./node_modules/hexo/bin/hexo deploy
 workflows:
-  version: 2.0
+  version: 2.1
   build-and-deploy:
     jobs:
       - build:

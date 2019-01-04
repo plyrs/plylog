@@ -23,7 +23,19 @@ author: hirofumi
 
 ```javascript
 'use strict';
-const Metalsmith = require('metalsmith');const collections = require('metalsmith-collections');const markdown = require('metalsmith-markdown');const permalinks = require('metalsmith-permalinks');const templates = require('metalsmith-templates');const metalsmith = new Metalsmith(__dirname)    .use(collections({posts: {pattern: "posts/*.md"}}))    .use(markdown())    .use(permalinks({pattern: ':title'}))    .use(templates('nunjucks'))    .build(err => {        if (err) throw err;});
+const Metalsmith = require('metalsmith');
+const collections = require('metalsmith-collections');
+const markdown = require('metalsmith-markdown');
+const permalinks = require('metalsmith-permalinks');
+const templates = require('metalsmith-templates');
+const metalsmith = new Metalsmith(__dirname)
+    .use(collections({posts: {pattern: "posts/*.md"}}))
+    .use(markdown())
+    .use(permalinks({pattern: ':title'}))
+    .use(templates('nunjucks'))
+    .build(err => {
+        if (err) throw err;
+    });
 ```
 
 これだけで今回ほしい部分は大体動く。  

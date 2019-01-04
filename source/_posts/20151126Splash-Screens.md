@@ -13,7 +13,29 @@ author: hirofumi
 
 ```js
 {
-  "name": "Kinlan's Amazing Application ++",  "short_name": "Kinlan's Amaze App",  "icons": [    {      "src": "launcher-icon-3x.png",      "sizes": "144x144",      "type": "image/png"    } ], "splash_screens": [{    "src": "splash/lowres",    "sizes": "320x240"  }, {    "src": "splash/hd_small",    "sizes": "1334x750"  }, {    "src": "splash/hd_hi",    "sizes": "1920x1080",    "density": 3  }],  "start_url": "index.html",  "display": "standalone"}
+  "name": "Kinlan's Amazing Application ++",
+  "short_name": "Kinlan's Amaze App",
+  "icons": [
+    {
+      "src": "launcher-icon-3x.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "splash_screens": [{
+    "src": "splash/lowres",
+    "sizes": "320x240"
+  }, {
+    "src": "splash/hd_small",
+    "sizes": "1334x750"
+  }, {
+    "src": "splash/hd_hi",
+    "sizes": "1920x1080",
+    "density": 3
+  }],
+  "start_url": "index.html",
+  "display": "standalone"
+}
 ```
 
 ちなみに我らがFirefoxはOpen Web Appsなるものを提唱している。

@@ -19,11 +19,19 @@ $ sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 ```
 
 ```bash
-# Nginx を停止$ sudo systemctl stop nginx# 80番ポートが塞がれていないかチャック$ netstat -na | grep ':80.*LISTEN'
+# Nginx を停止
+$ sudo systemctl stop nginx
+
+# 80番ポートが塞がれていないかチャック
+$ netstat -na | grep ':80.*LISTEN'
 ```
 
 ```shell
-# Let' sencrypt フォルダへ移動$ cd /opt/letsencrypt# Stndalone プラグインを実行$ ./letsencrypt-auto certonly --standalone
+# Let' sencrypt フォルダへ移動
+$ cd /opt/letsencrypt
+
+# Stndalone プラグインを実行
+$ ./letsencrypt-auto certonly --standalone
 ```
 
 情報を入力し規約に同意して完了。
@@ -33,7 +41,8 @@ $ sudo ls /etc/letsencrypt/live/your_domain_nam
 ```
 
 ```bash
-# Nginx を起動$ sudo systemctl start nginx
+# Nginx を起動
+$ sudo systemctl start nginx
 ```
 
 導入のさいに参考となった文献は以下など。
@@ -48,5 +57,12 @@ $ sudo ls /etc/letsencrypt/live/your_domain_nam
 また、証明書の更新は以下の手順で行う。
 
 ```bash
-# nginxを停止(80番ポートを開ける)$ sudo systemctl stop nginx# 更新$ ./letsencrypt-auto renew# nginxを起動$ sudo systemctl start nginx
+# nginxを停止(80番ポートを開ける)
+$ sudo systemctl stop nginx
+
+# 更新
+$ ./letsencrypt-auto renew
+
+# nginxを起動
+$ sudo systemctl start nginx
 ```

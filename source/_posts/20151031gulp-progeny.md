@@ -23,7 +23,15 @@ SassをGulp経由でWathする際に、差分ビルドを有効にするためgu
 
 ```js
 const cache = require('gulp-cached');
-const progeny = require('gulp-progeny');const sass = require('gulp-sass');gulp.task('sass', () => {  return gulp.src('*.scss')    .pipe(cache('style'))    .pipe(progeny())    .pipe(sass())});
+const progeny = require('gulp-progeny');
+const sass = require('gulp-sass');
+
+gulp.task('sass', () => {
+    return gulp.src('*.scss')
+        .pipe(cache('style'))
+        .pipe(progeny())
+        .pipe(sass())
+});
 ```
 
 これでSass内でインポートしているファイルの更新も監視対象となり、ビルドが走るようになった。

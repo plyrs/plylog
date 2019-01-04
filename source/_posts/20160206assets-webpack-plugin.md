@@ -18,7 +18,9 @@ Webpackでビルドした成果物のキャッシュバストを自動化した�
 
 ```js
 output: {
-    filename: '[name].js?[hash]',    chunkFilename: '[name].chunk.js?[hash]'},
+    filename: '[name].js?[hash]',
+    chunkFilename: '[name].chunk.js?[hash]'
+},
 ```
 
 これで成果物のファイル名は通常のままで、同時に排出される assets.json へクエリを付与したフルパスが記述される。

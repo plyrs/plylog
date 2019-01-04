@@ -24,7 +24,10 @@ npm install -g npm-check-updates@unstable
 
 ```shell
 # 更新を確認
-$ ncu# package.jsonを更新$ ncu -u# 更新を実行$ npm install
+$ ncu# package.jsonを更新$ ncu -u
+
+# 更新を実行
+$ npm install
 ```
 
 フロント開発でgulpを使用していると割と頻繁にupdateする必要がある。

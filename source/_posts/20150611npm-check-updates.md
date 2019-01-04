@@ -16,15 +16,18 @@ npm-check-updatesはこのへんの手間を省いてくれる。
 
 今回はコマンドが短くてよりよさげな開発版をインストール。
 
-```coffeescript
-npm install -g npm-check-updates@unstable
+```bash
+$ npm install -g npm-check-updates@unstable
 ```
 
 これで更新確認から実行まで3ステップで行える。
 
-```shell
+```bash
 # 更新を確認
-$ ncu# package.jsonを更新$ ncu -u
+$ ncu
+
+# package.jsonを更新
+$ ncu -u
 
 # 更新を実行
 $ npm install

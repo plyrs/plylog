@@ -49,7 +49,7 @@ Index.getInitialProps = async () => {
       };
     });
     return data;
-  })(require.context("../../source/_posts", true, /\.md$/));
+  })((require as any).context("../../source/_posts", true, /\.md$/));
 
   return {
     allBlogs: posts,

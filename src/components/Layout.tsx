@@ -1,13 +1,13 @@
-import Header from "./Header";
-import Meta from "./Meta";
+import Header from './Header';
+import Meta from './Meta';
 
 export default function Layout(props) {
   return (
     <section
-      className={`layout ${props.pathname == "info" && "info_page"}`}
+      className={`layout ${props.pathname == 'info' && 'info_page'}`}
       style={{
         backgroundColor: `${props.bgColor && props.bgColor}`,
-        color: `${props.pathname == "info" && "white"}`
+        color: `${props.pathname == 'info' && 'white'}`,
       }}
     >
       <Meta

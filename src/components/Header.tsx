@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Header(props) {
   return (
@@ -10,17 +10,17 @@ export default function Header(props) {
         <div>
           <Link
             href={`${
-              typeof window !== "undefined" &&
-              window.location.pathname == "/info"
-                ? "/"
-                : "/info"
+              typeof window !== 'undefined' &&
+              window.location.pathname == '/info'
+                ? '/'
+                : '/info'
             }`}
           >
             <h1>{`${
-              typeof window !== "undefined" &&
-              window.location.pathname == "/info"
-                ? "close"
-                : "info"
+              typeof window !== 'undefined' &&
+              window.location.pathname == '/info'
+                ? 'close'
+                : 'info'
             }`}</h1>
           </Link>
         </div>

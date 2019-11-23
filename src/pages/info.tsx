@@ -1,6 +1,6 @@
-import Layout from "../components/Layout";
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
+import Layout from '../components/Layout';
+import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
 
 export default function Info(props) {
   const frontmatter = props.data;
@@ -43,6 +43,6 @@ Info.getInitialProps = async () => {
 
   return {
     title: config.title,
-    ...data
+    ...data,
   };
 };

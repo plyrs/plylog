@@ -1,8 +1,8 @@
-import * as React from "react";
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
+import * as React from 'react';
+import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
 
-import Layout from "../../../../components/Layout";
+import Layout from '../../../../components/Layout';
 
 export default function BlogTemplate(props) {
   function reformatDate(fullDate) {
@@ -174,6 +174,6 @@ BlogTemplate.getInitialProps = async ctx => {
   const data = matter(content.default);
   return {
     siteTitle: config.title,
-    ...data
+    ...data,
   };
 };

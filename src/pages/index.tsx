@@ -1,7 +1,7 @@
-import matter from "gray-matter";
+import matter from 'gray-matter';
 
-import Layout from "../components/Layout";
-import BlogList from "../components/BlogList";
+import Layout from '../components/Layout';
+import BlogList from '../components/BlogList';
 
 const Index = props => {
   return (
@@ -28,10 +28,10 @@ Index.getInitialProps = async () => {
     const data = keys.map((key, index) => {
       // Create slug from filename
       const fileName = key
-        .replace(/^.*[\\\/]/, "")
-        .split(".")
+        .replace(/^.*[\\\/]/, '')
+        .split('.')
         .slice(0, -1)
-        .join(".");
+        .join('.');
       const value = values[index];
       // Parse yaml metadata & markdownbody in document
       const document = matter(value.default);
@@ -45,14 +45,14 @@ Index.getInitialProps = async () => {
         year,
         month,
         day,
-        slug
+        slug,
       };
     });
     return data;
-  })((require as any).context("../../source/_posts", true, /\.md$/));
+  })((require as any).context('../../source/_posts', true, /\.md$/));
 
   return {
     allBlogs: posts,
-    ...siteConfig
+    ...siteConfig,
   };
 };

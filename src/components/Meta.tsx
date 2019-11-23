@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 export default function Meta(props) {
   return (
@@ -11,7 +11,7 @@ export default function Meta(props) {
       </Head>
       <style jsx global>
         {`
-          @import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
+          @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 
           * {
             box-sizing: inherit;
@@ -22,7 +22,7 @@ export default function Meta(props) {
           }
           body {
             margin: 0;
-            font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
+            font-family: 'Work Sans', 'Helvetica Neue', Helvetica, sans-serif;
             overflow-x: hidden;
             color: #000;
             font-size: 16px;
@@ -158,7 +158,7 @@ export default function Meta(props) {
           h5,
           h6,
           p {
-            font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
+            font-family: 'Work Sans', 'Helvetica Neue', Helvetica, sans-serif;
             margin-left: 0;
             margin-right: 0;
             margin-top: 0;

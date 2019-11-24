@@ -21,10 +21,13 @@ export default Index;
 
 Index.getInitialProps = async () => {
   const siteConfig = await import(`data/config.json`);
+
   // get posts & context from folder
   const posts = (context => {
-    const keys = context.keys();
-    const values = keys.map(context);
+    // context より post データを取り出し、逆順 (最新順) へ並び替え 10 件を切り出し
+    const keys = [...context.keys()].reverse().slice(0, 10);
+
+    const values = keys.map<any>(context);
     const data = keys.map((key, index) => {
       // Create slug from filename
       const fileName = key
@@ -48,6 +51,7 @@ Index.getInitialProps = async () => {
         slug,
       };
     });
+
     return data;
   })((require as any).context('posts', true, /\.md$/));
 

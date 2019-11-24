@@ -2,7 +2,7 @@ import * as React from 'react';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
-import Layout from '../../../../components/Layout';
+import Layout from 'components/Layout';
 
 export default function BlogTemplate(props) {
   function reformatDate(fullDate) {
@@ -168,14 +168,8 @@ export default function BlogTemplate(props) {
 BlogTemplate.getInitialProps = async ctx => {
   const { year, month, day, slug } = ctx.query;
 
-  // Static export 時に slug へファイル名が入る為、日付を除外
-  const reg = /^\d{8}/;
-  const _slug = reg.test(slug) ? slug.slice(8) : slug;
-
-  const content = await import(
-    `../../../../../source/_posts/${year}${month}${day}${_slug}.md`
-  );
-  const config = await import(`../../../../data/config.json`);
+  const content = await import(`posts/${year}${month}${day}${slug}.md`);
+  const config = await import(`data/config.json`);
   const data = matter(content.default);
   return {
     siteTitle: config.title,

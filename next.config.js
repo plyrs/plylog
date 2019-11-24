@@ -1,3 +1,4 @@
+const path = require('path');
 const glob = require('glob');
 
 module.exports = {
@@ -6,6 +7,16 @@ module.exports = {
       test: /\.md$/,
       use: 'raw-loader',
     });
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      components: path.resolve(__dirname, 'src/components'),
+      data: path.resolve(__dirname, 'src/data'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      public: path.resolve(__dirname, 'src/public'),
+      posts: path.resolve(__dirname, 'source/_posts'),
+    };
+
     return config;
   },
   exportPathMap: async () => {
@@ -31,7 +42,7 @@ module.exports = {
       const month = fileName.substr(4, 2);
       const day = fileName.substr(6, 2);
       const slug = fileName.substr(8);
-      routes[`/${year}/${month}/${day}/${fileName}`] = {
+      routes[`/${year}/${month}/${day}/${slug}`] = {
         page: '/[year]/[month]/[day]/[slug]',
         query: {
           year,

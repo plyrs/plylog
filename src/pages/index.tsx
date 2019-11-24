@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 
-import Layout from '../components/Layout';
-import BlogList from '../components/BlogList';
+import Layout from 'components/Layout';
+import BlogList from 'components/BlogList';
 
 const Index = props => {
   return (
@@ -20,7 +20,7 @@ const Index = props => {
 export default Index;
 
 Index.getInitialProps = async () => {
-  const siteConfig = await import(`../data/config.json`);
+  const siteConfig = await import(`data/config.json`);
   // get posts & context from folder
   const posts = (context => {
     const keys = context.keys();
@@ -49,7 +49,7 @@ Index.getInitialProps = async () => {
       };
     });
     return data;
-  })((require as any).context('../../source/_posts', true, /\.md$/));
+  })((require as any).context('posts', true, /\.md$/));
 
   return {
     allBlogs: posts,

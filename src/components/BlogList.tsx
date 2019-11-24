@@ -10,28 +10,32 @@ const BlogList = props => {
     <>
       <ul className="list">
         {props.allBlogs.length > 1 &&
-          props.allBlogs.map(post => (
-            <Link
-              key={post.slug}
-              href="/[year]/[month]/[day]/[slug]"
-              as={`/${post.year}/${post.month}/${post.day}/${post.slug}`}
-            >
-              <a>
-                <li>
-                  <div className="hero_image">
-                    <img
-                      src={post.document.data.hero_image}
-                      alt={post.document.data.hero_image}
-                    />
-                  </div>
-                  <div className="blog__info">
-                    <h2>{post.document.data.title}</h2>
-                    <h3> {reformatDate(post.document.data.date)}</h3>
-                  </div>
-                </li>
-              </a>
-            </Link>
-          ))}
+          props.allBlogs.map(post => {
+            const { year, month, day, slug } = post;
+
+            return (
+              <Link
+                key={`${year}${month}${day}${slug}`}
+                href="/[year]/[month]/[day]/[slug]"
+                as={`/${year}/${month}/${day}/${slug}`}
+              >
+                <a>
+                  <li>
+                    <div className="hero_image">
+                      <img
+                        src={post.document.data.hero_image}
+                        alt={post.document.data.hero_image}
+                      />
+                    </div>
+                    <div className="blog__info">
+                      <h2>{post.document.data.title}</h2>
+                      <h3> {reformatDate(post.document.data.date)}</h3>
+                    </div>
+                  </li>
+                </a>
+              </Link>
+            );
+          })}
       </ul>
       <style jsx>
         {`

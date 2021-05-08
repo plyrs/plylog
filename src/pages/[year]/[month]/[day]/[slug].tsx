@@ -1,26 +1,99 @@
-import * as React from 'react';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
+import glob from 'glob';
 
 import Layout from 'components/Layout';
+import Pagination from 'components/Pagination';
 
-export default function BlogTemplate(props) {
+function getPaths() {
+  // get all .md files in the posts dir
+  const posts = glob.sync('source/_posts/*.md');
+
+  return (
+    posts
+      // remove path and extension to leave filename only
+      .map((file) => file.split('/')[2].replace(/ /g, '-').slice(0, -3).trim())
+      // add each post to the routes obj
+      .map((fileName) => {
+        const year = fileName.substr(0, 4);
+        const month = fileName.substr(4, 2);
+        const day = fileName.substr(6, 2);
+        const slug = fileName.substr(8);
+
+        return `/${year}/${month}/${day}/${slug}`;
+      })
+  );
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getPaths();
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+type PageProps = {
+  siteTitle: string;
+  content: any;
+  data: any;
+  pagination: {
+    prev: string | null;
+    next: string | null;
+  };
+};
+export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
+  const { year, month, day, slug } = params;
+  const paths = getPaths();
+
+  const currentPath = `/${year}/${month}/${day}/${slug}`;
+  const index = paths.findIndex((path) => path === currentPath);
+
+  const content = await import(`posts/${year}${month}${day}${slug}.md`);
+  const config = await import(`data/config.json`);
+  const data = matter(content.default);
+
+  data.data.date = data.data.date.toString();
+  delete data.orig;
+
+  return {
+    props: {
+      siteTitle: config.title,
+      ...data,
+      pagination: {
+        prev: paths[index + 1] || null,
+        next: paths[index - 1] || null,
+      },
+    },
+  };
+};
+
+export default function Page(
+  props: InferGetStaticPropsType<typeof getStaticProps>,
+): JSX.Element {
   function reformatDate(fullDate) {
+    console.log({ fullDate });
     const date = new Date(fullDate);
+    console.log({ date });
     return date.toDateString().slice(4);
   }
+
   const markdownBody = props.content;
   const frontmatter = props.data;
 
   return (
     <Layout siteTitle={props.siteTitle}>
       <article className="blog">
-        <figure className="blog__hero">
-          <img
-            src={frontmatter.hero_image}
-            alt={`blog_hero_${frontmatter.title}`}
-          />
-        </figure>
+        {frontmatter.hero_image && (
+          <figure className="blog__hero">
+            <img
+              src={frontmatter.hero_image}
+              alt={`blog_hero_${frontmatter.title}`}
+            />
+          </figure>
+        )}
         <div className="blog__info">
           <h1>{frontmatter.title}</h1>
           <h3>{reformatDate(frontmatter.date)}</h3>
@@ -30,6 +103,7 @@ export default function BlogTemplate(props) {
         </div>
         <h2 className="blog__footer">Written By: {frontmatter.author}</h2>
       </article>
+      <Pagination {...props.pagination} />
       <style jsx>
         {`
           .blog h1 {
@@ -164,15 +238,3 @@ export default function BlogTemplate(props) {
     </Layout>
   );
 }
-
-BlogTemplate.getInitialProps = async ctx => {
-  const { year, month, day, slug } = ctx.query;
-
-  const content = await import(`posts/${year}${month}${day}${slug}.md`);
-  const config = await import(`data/config.json`);
-  const data = matter(content.default);
-  return {
-    siteTitle: config.title,
-    ...data,
-  };
-};

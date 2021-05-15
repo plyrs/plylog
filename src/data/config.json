@@ -1,5 +1,9 @@
 {
   "title": "Playlog",
-  "description": "Today I Learned.",
-  "repositoryUrl": "https://github.com/plyrs/plylog"
+  "description": "Webフロントエンドについて徒然と",
+  "author": "Hirofumii",
+  "language": "ja-JP",
+  "timezone": "Asia/Tokyo",
+  "repositoryUrl": "https://github.com/plyrs/plylog",
+  "perPage": 5
 }

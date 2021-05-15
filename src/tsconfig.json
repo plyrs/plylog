@@ -19,7 +19,8 @@
       "data*": ["data*"],
       "pages*": ["pages*"],
       "public*": ["public*"],
-      "posts*": ["../source/_posts*"]
+      "styles*": ["styles*"],
+      "posts*": ["../source/_posts*"],
     }
   },
   "exclude": ["node_modules"],

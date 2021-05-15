@@ -1,19 +1,17 @@
 import Link from 'next/link';
 import { styled } from 'styles/config';
+import config from 'data/config.json';
 
 interface Props {
-  siteTitle: string;
   isHome: boolean;
 }
-export default function HeaderComponent(props: Props) {
-  const { siteTitle, isHome } = props;
-
+export default function HeaderComponent({ isHome }: Props) {
   return (
     <Header role="banner" isHome={isHome}>
       <Logo>
         <MainHeadline isHome={isHome}>
           <Link href="/">
-            <a>{siteTitle}</a>
+            <a>{config.title}</a>
           </Link>
         </MainHeadline>
       </Logo>
@@ -30,7 +28,7 @@ const Header = styled('header', {
       },
       false: {
         borderTop: '1px solid $primary',
-        padding: '2rem 1rem',
+        padding: '2.5rem 1rem',
       },
     },
   },
@@ -49,12 +47,10 @@ const Header = styled('header', {
 });
 
 const Logo = styled('div', {
-  textAlign: 'center',
   '& a:hover': {
     textDecoration: 'none',
   },
   '@sm': {
-    textAlign: 'left',
     marginRight: 'auto',
   },
 });

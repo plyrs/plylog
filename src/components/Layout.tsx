@@ -11,7 +11,7 @@ export default function Layout(props) {
         siteTitle={props.siteTitle}
         siteDescription={props.siteDescription}
       />
-      <Header siteTitle={props.siteTitle} isHome={props.pathname === '/'} />
+      <Header isHome={props.pathname === '/'} />
       <Content>{props.children}</Content>
       <Footer />
     </>

@@ -81,7 +81,7 @@ export default function Page(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ): JSX.Element {
   return (
-    <Layout siteTitle={props.siteTitle}>
+    <Layout title={props.siteTitle}>
       <Article post={props.post} />
       <Pagination {...props.pagination} />
     </Layout>

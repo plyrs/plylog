@@ -133,11 +133,7 @@ function Page(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ): JSX.Element {
   return (
-    <Layout
-      pathname="/"
-      siteTitle={props.title}
-      siteDescription={props.description}
-    >
+    <Layout pathname="/" title={props.title} description={props.description}>
       <BlogList allBlogs={props.allBlogs} />
       <Pagination {...props.pagination} />
     </Layout>

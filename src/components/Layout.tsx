@@ -4,13 +4,16 @@ import Header from './Header';
 import Footer from './Footer';
 import Meta from './Meta';
 
-export default function Layout(props) {
+type LayoutProps = {
+  title: string;
+  description?: string;
+  pathname?: string;
+  children: any;
+};
+export default function Layout(props: LayoutProps) {
   return (
     <>
-      <Meta
-        siteTitle={props.siteTitle}
-        siteDescription={props.siteDescription}
-      />
+      <Meta title={props.title} description={props.description} />
       <Header isHome={props.pathname === '/'} />
       <Content>{props.children}</Content>
       <Footer />

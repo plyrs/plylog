@@ -1,65 +1,76 @@
 import Link from 'next/link';
+import { styled } from 'styles/config';
 
-export default function Header(props) {
+interface Props {
+  siteTitle: string;
+  isHome: boolean;
+}
+export default function HeaderComponent(props: Props) {
+  const { siteTitle, isHome } = props;
+
   return (
-    <header className="header">
-      <nav className="nav" role="navigation" aria-label="main navigation">
-        <Link href="/">
-          <h1>{props.siteTitle}</h1>
-        </Link>
-        <div>
-          <Link
-            href={`${
-              typeof window !== 'undefined' &&
-              window.location.pathname == '/info'
-                ? '/'
-                : '/info'
-            }`}
-          >
-            <h1>{`${
-              typeof window !== 'undefined' &&
-              window.location.pathname == '/info'
-                ? 'close'
-                : 'info'
-            }`}</h1>
+    <Header role="banner" isHome={isHome}>
+      <Logo>
+        <MainHeadline isHome={isHome}>
+          <Link href="/">
+            <a>{siteTitle}</a>
           </Link>
-        </div>
-      </nav>
-      <style jsx>
-        {`
-          h1 {
-            margin-bottom: 0;
-          }
-          h1:hover {
-            cursor: pointer;
-          }
-          nav {
-            padding: 1.5rem 1.25rem;
-            border-bottom: 1px solid #ebebeb;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            align-items: center;
-          }
-          @media (min-width: 768px) {
-            .header {
-              height: 100vh;
-              position: fixed;
-              left: 0;
-              top: 0;
-            }
-            .nav {
-              padding: 2rem;
-              width: 30vw;
-              height: 100%;
-              border-right: 1px solid #ebebeb;
-              border-bottom: none;
-              flex-direction: column;
-              align-items: flex-start;
-            }
-          }
-        `}
-      </style>
-    </header>
+        </MainHeadline>
+      </Logo>
+    </Header>
   );
 }
+
+const Header = styled('header', {
+  variants: {
+    isHome: {
+      true: {
+        borderWidth: '4px',
+        padding: '5rem 1rem',
+      },
+      false: {
+        borderTop: '1px solid $primary',
+        padding: '2rem 1rem',
+      },
+    },
+  },
+  position: 'relative',
+  maxWidth: '660px',
+  margin: 'auto',
+  borderTop: '4px solid $primary',
+  boxSizing: 'border-box',
+  '@sm': {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    paddingRight: 0,
+    paddingLeft: 0,
+  },
+});
+
+const Logo = styled('div', {
+  textAlign: 'center',
+  '& a:hover': {
+    textDecoration: 'none',
+  },
+  '@sm': {
+    textAlign: 'left',
+    marginRight: 'auto',
+  },
+});
+
+const MainHeadline = styled('h1', {
+  variants: {
+    isHome: {
+      true: {
+        fontSize: '2.6em',
+      },
+      false: {
+        fontSize: '2.3em',
+      },
+    },
+  },
+  fontWeight: 500,
+  display: 'inline-block',
+  margin: '0',
+});

@@ -9,21 +9,19 @@
     "export": "next export src"
   },
   "dependencies": {
+    "@stitches/react": "^0.1.9",
     "gray-matter": "^4.0.2",
     "next": "^10.2.0",
     "node-glob": "^1.2.0",
     "raw-loader": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-markdown": "^4.2.2",
-    "styled-components": "^4.4.1",
-    "webpack": "^4.41.2"
+    "react-markdown": "^4.2.2"
   },
   "devDependencies": {
     "@types/node": "^12.12.17",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
-    "babel-plugin-styled-components": "^1.10.6",
     "typescript": "^3.7.3"
   }
 }

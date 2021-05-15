@@ -66,7 +66,7 @@ function ArticleComponent({ post }: ArticleProps): JSX.Element {
       </header>
 
       <ArticleEntry>
-        <ReactMarkdown source={post.document.content} />
+        <ReactMarkdown children={post.document.content} />
       </ArticleEntry>
     </Article>
   );

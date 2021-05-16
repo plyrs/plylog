@@ -25,7 +25,10 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="ja">
-        <Head />
+        <Head>
+          <meta charSet="utf-8" />
+          <link rel="stylesheet" href="/css/normalize.css" />
+        </Head>
         <body>
           <Main />
           <NextScript />

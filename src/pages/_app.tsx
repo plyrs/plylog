@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import '../public/css/normalize.css';
+import Head from 'next/head';
 import { global } from '../styles/config';
 
 const globalStyles = global({
@@ -27,5 +27,12 @@ const globalStyles = global({
 // This default export is required in a new `pages/_app.js` file.
 export default function App({ Component, pageProps }: AppProps) {
   globalStyles();
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }

@@ -5,11 +5,13 @@ import { global } from '../styles/config';
 const globalStyles = global({
   html: {
     fontSize: '62.5%',
-    backgroundColor: '#fcfcfc',
     color: '#2c2c2c',
     fontFamily: '$untitled',
     fontWeight: 500,
     background: '#fff',
+  },
+  body: {
+    backgroundColor: '#fcfcfc',
   },
   a: {
     '&:any-link': {

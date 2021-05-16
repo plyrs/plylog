@@ -1,10 +1,12 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import matter from 'gray-matter';
 import glob from 'glob';
+import removeMd from 'remove-markdown';
 
 import Layout from 'components/Layout';
 import Article, { Post } from 'components/Article';
 import Pagination from 'components/Pagination';
+import SEO from 'components/Seo';
 
 function getPaths() {
   // get all .md files in the posts dir
@@ -37,7 +39,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 type PageProps = {
   post: Post;
-  siteTitle: string;
+  title: string;
+  description: string;
   pagination: {
     prev: string | null;
     next: string | null;
@@ -51,7 +54,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const index = paths.findIndex((path) => path === currentPath);
 
   const content = await import(`posts/${year}${month}${day}${slug}.md`);
-  const config = await import(`data/config.json`);
   const document = matter(content.default);
 
   document.data.date = document.data.date.toString();
@@ -65,10 +67,16 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
     document: document as any,
   };
 
+  const title = document.data.title;
+  const description = removeMd(document.content)
+    .replace(/\r?\n/g, '')
+    .substr(0, 160);
+
   return {
     props: {
       post,
-      siteTitle: config.title,
+      title,
+      description,
       pagination: {
         prev: paths[index + 1] || null,
         next: paths[index - 1] || null,
@@ -81,7 +89,8 @@ export default function Page(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ): JSX.Element {
   return (
-    <Layout title={props.siteTitle}>
+    <Layout>
+      <SEO title={props.title} description={props.description} />
       <Article post={props.post} />
       <Pagination {...props.pagination} />
     </Layout>

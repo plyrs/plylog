@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import Layout from 'components/Layout';
 import BlogList from 'components/BlogList';
 import Pagination from 'components/Pagination';
+import SEO from 'components/Seo';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { perPage } = await import(`data/config.json`);
@@ -133,7 +134,8 @@ function Page(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ): JSX.Element {
   return (
-    <Layout pathname="/" title={props.title} description={props.description}>
+    <Layout pathname="/">
+      <SEO />
       <BlogList allBlogs={props.allBlogs} />
       <Pagination {...props.pagination} />
     </Layout>

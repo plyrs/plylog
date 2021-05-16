@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { colorBrewer as hl } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { styled } from 'styles/config';
 
 function toDoubleDigits(num: number): string {
@@ -41,6 +43,26 @@ type ArticleProps = {
   post: Post;
 };
 
+const components: any = {
+  code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={hl}
+        language={match[1]}
+        PreTag="div"
+        children={String(children).replace(/\n$/, '')}
+        showLineNumbers={true}
+        {...props}
+      />
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
+};
+
 /**
  * 記事一覧
  *
@@ -66,7 +88,10 @@ function ArticleComponent({ post }: ArticleProps): JSX.Element {
       </header>
 
       <ArticleEntry>
-        <ReactMarkdown children={post.document.content} />
+        <ReactMarkdown
+          components={components}
+          children={post.document.content}
+        />
       </ArticleEntry>
     </Article>
   );
@@ -148,8 +173,9 @@ const ArticleEntry = styled('div', {
   },
   pre: {
     overflow: 'auto',
-    padding: '7px 15px',
-    border: '1px solid color(border)',
+    padding: '0',
+    border: '1px solid #7c848c',
+    lineHeight: 1.4,
     code: {
       margin: '0',
       padding: '0',

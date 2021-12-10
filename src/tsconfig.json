@@ -21,7 +21,8 @@
       "public*": ["public*"],
       "styles*": ["styles*"],
       "posts*": ["../source/_posts*"],
-    }
+    },
+    "incremental": true
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

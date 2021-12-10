@@ -9,7 +9,7 @@
     "export": "next export src"
   },
   "dependencies": {
-    "@stitches/react": "^0.1.9",
+    "@stitches/react": "^1.2.6",
     "glob": "^7.2.0",
     "gray-matter": "^4.0.3",
     "next": "^12.0.7",

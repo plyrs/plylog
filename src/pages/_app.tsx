@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { global } from '../styles/config';
+import { globalCss } from '../styles/config';
 
-const globalStyles = global({
+const globalStyles = globalCss({
   html: {
     fontSize: '62.5%',
     color: '#2c2c2c',
